@@ -44,7 +44,7 @@ public:
     Condition move(int ax, int ay, int bx, int by) {
         bool possible;
         Condition cond;
-        possible = abs(ax-bx)<2 & abs(ay-by)<2;
+        possible = (abs(ax-bx) < 2) && (abs(ay-by)<2);
         if(!possible) {
             cond.t1absent = 10*ax + ay;
             cond.t2absent = cond.t1absent;
@@ -71,6 +71,7 @@ public:
             } else if (ay==by) cond.emptyCells.insert(10*bx + by);
             else cond.t1present = 10*bx + by;
         }
+        return cond;
     }
 };
 
